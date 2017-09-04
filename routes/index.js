@@ -1,34 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
+const dbClient = require('../helper/dbClient.js');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-
-  /**
-   * Define a callback function to render the
-   * homepage once the products data has been loaded
-   */
-  const renderProducts = function(error, file) {
-
+router.get('/', function (req, res, next) {
+  const callBack = (error, products) => {
     if (error) {
-      throw error;
+      res.sendStatus(500)
     }
-
-    const fileData = file.toString();
-    const productsData = JSON.parse(fileData);
-    res.render('index', {
-      title: 'AcmeInc',
-      description: 'We sell the finest goods and services.',
-      products: productsData,
-    });
-  };
-
-  /**
-   * Load the products file
-   */
-  const productsFilePath = __dirname + '/../data/products.json';
-  fs.readFile(productsFilePath, renderProducts);
+    else {
+      res.render('index', {
+        title: 'AcmeInc',
+        description: 'We sell the finest goods and services.',
+        products,
+      });
+    }
+  }
+  dbClient.getproducts({}, callBack)
 });
 
 module.exports = router;
