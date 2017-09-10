@@ -39,4 +39,8 @@ router.get('/products/:urlPath', function(req, res, next) {
     dbClient.getproducts({ urlPath }, callBack);
 });
 
+router.get('/admin', (req, res) => {
+    res.render("add-product");
+})
+
 module.exports = router;
