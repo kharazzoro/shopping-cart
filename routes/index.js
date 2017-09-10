@@ -55,7 +55,7 @@ router.post('/new-product', (req, res) => {
         if (err) {
             res.sendStatus(500)
         } else {
-            res.render('index')
+            res.send(`${req.body.title} Added`)
         }
     }
     const query = req.body
