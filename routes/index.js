@@ -3,7 +3,6 @@ const router = express.Router();
 const dbClient = require('../helper/dbClient.js');
 
 /* GET home page. */
-
 router.get('/', function(req, res, next) {
     const callBack = (error, products) => {
         if (error) {
@@ -21,8 +20,6 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET single-product information page. */
-
-
 router.get('/products/:urlPath', function(req, res, next) {
     const urlPath = req.params.urlPath;
     const callBack = (error, products) => {
