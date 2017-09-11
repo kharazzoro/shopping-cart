@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const dbClient = require('../helper/dbClient.js');
+const generateUrl = require('./generate-path.js');
 
 //  it add Admin Page Form ('products-admin/add')
 router.get('/add', (req, res) => {
@@ -16,11 +17,13 @@ router.post('/', (req, res) => {
             res.redirect('/');
         }
     }
+
     let query = req.body
-    let path = req.body.title;
-    path = path.toLowerCase();
-    path = path.split(" ").join("-");
+    let myTitle = req.body.title;
+
+    const urlPath = generateUrl.generatePath(myTitle)
     query.urlPath = path;
+
     dbClient.addProducts(query, callBack);
 
 })
