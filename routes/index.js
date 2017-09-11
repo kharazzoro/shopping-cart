@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
             });
         }
     }
-    dbClient.getproducts({}, callBack)
+    dbClient.getProducts({}, callBack)
 });
 
 /* GET single-product information page. */
@@ -38,29 +38,29 @@ router.get('/products/:urlPath', function(req, res, next) {
             res.render('single-product', {
                 title: products[0].title,
                 description: `We sell the finest goods and services. 
-        This is the ${products[0].title}.`,
+                              This is the ${products[0].title}.`,
                 product: products[0]
             });
         }
     }
-    dbClient.getproducts({ urlPath }, callBack);
+    dbClient.getProducts({ urlPath }, callBack);
 });
 
-router.get('/admin', (req, res) => {
+router.get('/products-admin/add', (req, res) => {
     res.render("add-product");
 })
 
-router.post('/new-product', (req, res) => {
+
+router.post('/products-admin/new-product', (req, res) => {
     const callBack = (err) => {
         if (err) {
             res.sendStatus(500)
         } else {
-            res.send(`${req.body.title} Added`)
+            res.redirect('/');
         }
     }
     const query = req.body
-    dbClient.addproducts(query, callBack);
-    console.log(query)
+    dbClient.addProducts(query, callBack);
 })
 
 module.exports = router;
