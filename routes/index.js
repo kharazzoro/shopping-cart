@@ -16,7 +16,8 @@ router.get('/', function(req, res, next) {
             });
         }
     }
-    dbClient.getproducts({}, callBack)
+     dbClient.getProducts({}, callBack)
+ 
 });
 
 /* GET single-product information page. */
@@ -31,12 +32,13 @@ router.get('/products/:urlPath', function(req, res, next) {
             res.render('single-product', {
                 title: products[0].title,
                 description: `We sell the finest goods and services. 
-        This is the ${products[0].title}.`,
-                product: products[0]
+         This is the ${products[0].title}.`,
+                 product: products[0]
             });
         }
     }
-    dbClient.getproducts({ urlPath }, callBack);
+     dbClient.getProducts({ urlPath }, callBack);
+
 });
 
 module.exports = router;
