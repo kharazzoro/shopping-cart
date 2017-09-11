@@ -7,7 +7,7 @@ router.get('/add', (req, res) => {
     res.render("add-product");
 })
 
-// it take the data from form[admin] and save it to our database ('products-admin/')
+// it take data from form[admin] and save it to our database ('products-admin/')
 router.post('/', (req, res) => {
     const callBack = (err) => {
         if (err) {
