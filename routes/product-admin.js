@@ -2,20 +2,13 @@ const express = require('express');
 const router = express.Router();
 const dbClient = require('../helper/dbClient.js');
 
-var bodyParser = require("body-parser");
-
-// const formidable = require('express-formidable')
-// router.use(formidable());
-
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
-
-router.get('/products-admin/add', (req, res) => {
+//  it add Admin Page Form ('products-admin/add')
+router.get('/add', (req, res) => {
     res.render("add-product");
 })
 
-
-router.post('/products-admin', (req, res) => {
+// it take the data from form[admin] and save it to our database ('products-admin/')
+router.post('/', (req, res) => {
     const callBack = (err) => {
         if (err) {
             res.sendStatus(500)

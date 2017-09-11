@@ -2,13 +2,6 @@ const express = require('express');
 const router = express.Router();
 const dbClient = require('../helper/dbClient.js');
 
-var bodyParser = require("body-parser");
-
-// const formidable = require('express-formidable')
-// router.use(formidable());
-
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
 /* GET home page. */
 
 router.get('/', function(req, res, next) {
