@@ -1,4 +1,3 @@
-
 const Product = require('../models/Products');
 const mongoose = require('mongoose');
 const mongoConnection = process.env.MONGODB_URI || 'mongodb://localhost:27017/shopcentre';
@@ -19,4 +18,3 @@ module.exports = {
     getProducts,
     addProducts
 };
-

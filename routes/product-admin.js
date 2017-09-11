@@ -16,8 +16,13 @@ router.post('/', (req, res) => {
             res.redirect('/');
         }
     }
-    const query = req.body
+    let query = req.body
+    let path = req.body.title;
+    path = path.toLowerCase();
+    path = path.split(" ").join("-");
+    query.urlPath = path;
     dbClient.addProducts(query, callBack);
+
 })
 
 module.exports = router;

@@ -16,8 +16,8 @@ router.get('/', function(req, res, next) {
             });
         }
     }
-     dbClient.getProducts({}, callBack)
- 
+    dbClient.getProducts({}, callBack)
+
 });
 
 /* GET single-product information page. */
@@ -33,11 +33,11 @@ router.get('/products/:urlPath', function(req, res, next) {
                 title: products[0].title,
                 description: `We sell the finest goods and services. 
          This is the ${products[0].title}.`,
-                 product: products[0]
+                product: products[0]
             });
         }
     }
-     dbClient.getProducts({ urlPath }, callBack);
+    dbClient.getProducts({ urlPath }, callBack);
 
 });
 
