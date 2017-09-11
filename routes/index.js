@@ -51,7 +51,7 @@ router.get('/products-admin/add', (req, res) => {
 })
 
 
-router.post('/products-admin/new-product', (req, res) => {
+router.post('/products-admin', (req, res) => {
     const callBack = (err) => {
         if (err) {
             res.sendStatus(500)
