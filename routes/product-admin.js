@@ -23,10 +23,10 @@ router.post('/', (req, res) => {
     let { body } = req;
     let { title } = body;
 
-    const urlPath = generatePath(myTitle)
-    query.urlPath = urlPath;
+    const urlPath = generatePath(title)
+    body.urlPath = urlPath;
 
-    dbClient.addProducts(query, callBack);
+    dbClient.addProducts(body, callBack);
 
 })
 
