@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const dbClient = require('../helper/dbClient.js');
-const generateUrl = require('./generate-path.js');
+const generatePath = require('./generate-path.js');
 
 //  it add Admin Page Form ('products-admin/add')
 router.get('/add', (req, res) => {
@@ -21,8 +21,8 @@ router.post('/', (req, res) => {
     let query = req.body
     let myTitle = req.body.title;
 
-    const urlPath = generateUrl.generatePath(myTitle)
-    query.urlPath = path;
+    const urlPath = generatePath(myTitle)
+    query.urlPath = urlPath;
 
     dbClient.addProducts(query, callBack);
 
