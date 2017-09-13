@@ -169,6 +169,22 @@ a:focus {
   background: #ddd;
 }
 
+.comment-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*border: 2px solid blue;*/
+}
+
+.textarea {
+    /*text-align: start;*/
+}
+
+.comment-btn {
+  display: flex;
+  justify-content: flex-start;
+    /*background-color: yellow;*/
+}
 /**
  * Fun color gradients to stand in for product images
  */
