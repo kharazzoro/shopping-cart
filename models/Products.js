@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+
 const { Schema } = mongoose;
 
 const schema = new Schema({
+ 
     urlPath: String,
     title: String,
     price: Number,
@@ -11,6 +13,8 @@ const schema = new Schema({
         default: 1
     },
     isTopRated: Boolean
+  
+ 
 });
 
 const Products = mongoose.model('products', schema);
