@@ -32,8 +32,8 @@ router.get('/products/:urlPath', function(req, res, next) {
             res.render('single-product', {
                 title: products[0].title,
                 description: `We sell the finest goods and services. 
-         This is the ${products[0].title}.`,
-                 product: products[0]
+                This is the ${products[0].title}.`,
+                product: products[0]
             });
         }
     }
