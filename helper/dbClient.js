@@ -1,4 +1,3 @@
-
 const Product = require('../models/Products');
 const mongoose = require('mongoose');
 
@@ -17,7 +16,7 @@ const addProducts = (query, sucessCallBack) => {
 
 
 module.exports = {
-  getProducts,
-  addProducts,
+     getProducts,
+    addProducts
 };
-
+  

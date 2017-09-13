@@ -3,7 +3,6 @@ const router = express.Router();
 const dbClient = require('../helper/dbClient.js');
 
 /* GET home page. */
-
 router.get('/', function(req, res, next) {
     const callBack = (error, products) => {
         if (error) {
@@ -16,13 +15,11 @@ router.get('/', function(req, res, next) {
             });
         }
     }
-     dbClient.getProducts({}, callBack)
- 
+    dbClient.getProducts({}, callBack)
+
 });
 
 /* GET single-product information page. */
-
-
 router.get('/products/:urlPath', function(req, res, next) {
     const urlPath = req.params.urlPath;
     const callBack = (error, products) => {
@@ -32,12 +29,14 @@ router.get('/products/:urlPath', function(req, res, next) {
             res.render('single-product', {
                 title: products[0].title,
                 description: `We sell the finest goods and services. 
+ 
                 This is the ${products[0].title}.`,
+ 
                 product: products[0]
             });
         }
     }
-     dbClient.getProducts({ urlPath }, callBack);
+    dbClient.getProducts({ urlPath }, callBack);
 
 });
 
