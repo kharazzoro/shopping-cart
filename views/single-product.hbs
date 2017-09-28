@@ -10,10 +10,14 @@
             <h1 class="product__title"> comments </h1>
         </header>
         <div class="textarea">
-            <textarea placeholder="Enter the comment"></textarea>
         </div>
         <div class="comment-btn">
-            <button class="button"> submit </button>
         </div>
     </div>
+
+    <form action="/products/{{product._id}}/comments" method="post">
+             <textarea name="content" placeholder="Enter the comment"></textarea> <br>
+             <button type="submit" class="button"> add comment </button>
+
+    </form>
 </div>

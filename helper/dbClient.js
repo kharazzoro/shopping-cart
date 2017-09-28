@@ -1,5 +1,6 @@
 const Product = require('../models/Products');
 const mongoose = require('mongoose');
+const Comment = require('../models/Comment');
 
 const mongoConnection = process.env.MONGODB_URI || 'mongodb://localhost:27017/shopcentre';
 
@@ -14,9 +15,14 @@ const addProducts = (query, sucessCallBack) => {
   newProduct.save(query, sucessCallBack);
 };
 
+const addComments = (comment, sucessCallBack) => {
+  mongoose.connect(mongoConnection);
+  const newComment = new Comment(comment);
+  newComment.save(sucessCallBack);
+};
 
 module.exports = {
-     getProducts,
-    addProducts
+  getProducts,
+  addProducts,
+  addComments,
 };
-  
